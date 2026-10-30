@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Inicia sesión en NovaStream para ver películas, series y anime."/><title>Iniciar sesión — NovaStream</title><link rel="icon" href="favicon.svg" type="image/svg+xml"/><link rel="stylesheet" href="css/styles.css"/></head>
+<body data-page="login">
+<header><div class="container nav"><a href="index.html" class="logo">Nova<span>Stream</span></a><div class="user-area"><a href="index.html" class="btn btn-ghost">Volver</a></div></div></header>
+<main class="container"><div class="auth-card"><h1 style="font-size:1.8rem">Iniciar sesión</h1><p style="color:var(--muted);margin:.5rem 0 1.5rem">Necesitas iniciar sesión para reproducir películas, series y anime.</p><form id="loginForm"><div class="field"><label for="name">Nombre</label><input id="name" type="text" placeholder="Tu nombre" required/></div><div class="field"><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="tucorreo@ejemplo.com" required/></div><button class="btn btn-primary" style="width:100%">Entrar</button><p id="note" class="note"></p></form></div></main>
+<div class="toast"></div>
+<script src="js/data.js"></script><script src="js/app.js"></script>
+<script>document.getElementById("loginForm").addEventListener("submit",e=>{e.preventDefault();const name=document.getElementById("name").value.trim();const email=document.getElementById("email").value.trim();const note=document.getElementById("note");if(!name||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){note.textContent="Completa tu nombre y un correo válido.";note.className="note error";return;}login(name,email);note.textContent="¡Sesión iniciada!";note.className="note success";setTimeout(()=>location.href="index.html",900);});</script>
+</body></html>
